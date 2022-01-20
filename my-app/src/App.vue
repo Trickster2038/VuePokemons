@@ -1,22 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Pokemons catalogue based on Vue"/>
-    <PokeList v-bind:limit="20" />
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <router-view />
+    <!-- <HelloWorld msg="Welcome to Pokemons catalogue based on Vue" /> -->
+    <!-- <PokeList v-bind:limit="20" /> -->
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import PokeList from './components/PokeList.vue'
+// import HelloWorld from "./components/HelloWorld.vue";
+// import PokeList from "./components/PokeList.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld,
-    PokeList
-  }
-}
+  },
+};
 </script>
 
 <style>

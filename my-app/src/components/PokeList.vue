@@ -1,13 +1,23 @@
 <template>
   <div class="hello">
-      <span>
-    <span><v-btn color="#41b883" elevation="2" v-on:click="increment">Increment</v-btn></span>
-    <span>Cnt: {{ cnt }}</span>
-      </span>
+    <HelloWorld msg="Welcome to Pokemons catalogue based on Vue" />
+    <span>
+      <span
+        ><v-btn color="#41b883" elevation="2" v-on:click="increment"
+          >Increment</v-btn
+        ></span
+      >
+      <span>Cnt: {{ cnt }}</span>
+    </span>
     <div class="d-flex flex-wrap gallery">
       <ul>
         <li v-for="item in pokemons" :key="item.name" class="poke-li">
-          <v-card elevation="2" outlined class="poke-card" v-on:click="goto(item.url)">
+          <v-card
+            elevation="2"
+            outlined
+            class="poke-card"
+            v-on:click="goto(item.url)"
+          >
             <v-img
               height="250"
               v-bind:src="
@@ -27,9 +37,14 @@
 </template>
 
 <script>
+import HelloWorld from "./HelloWorld.vue";
+
 let nextTodoId = 1;
 export default {
   name: "PokeList",
+  components: {
+    HelloWorld,
+  },
   props: {
     limit: Number,
   },
@@ -65,14 +80,14 @@ export default {
   },
 
   methods: {
+    get_poke_id(url) {
+      return url.split("/")[url.split("/").length - 2];
+    },
     goto(item_url) {
-        window.location.replace(item_url);
+      window.location.replace("/pokemon?id=" + this.get_poke_id(item_url));
     },
     increment() {
       this.cnt += 4;
-    },
-    get_poke_id(url) {
-      return url.split("/")[url.split("/").length - 2];
     },
     call_api() {
       //   console.log("https://pokeapi.co/api/v2/pokemon?limit=" + this.limit);
@@ -98,11 +113,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 span {
-    margin: 4px;
+  margin: 4px;
 }
 .gallery {
-    width: 70%;
-    margin: auto;
+  width: 70%;
+  margin: auto;
 }
 .poke-li {
   width: 20%;
