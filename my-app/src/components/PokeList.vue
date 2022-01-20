@@ -84,7 +84,7 @@ export default {
       return url.split("/")[url.split("/").length - 2];
     },
     goto(item_url) {
-      window.location.replace("/pokemon?id=" + this.get_poke_id(item_url));
+      window.location.replace("/pokemon/" + this.get_poke_id(item_url));
     },
     increment() {
       this.cnt += 4;
@@ -101,7 +101,6 @@ export default {
           // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
           // чтобы не перехватывать исключения из ошибок в самих компонентах.
           (error) => {
-            // this.
             console.log(error);
           }
         );

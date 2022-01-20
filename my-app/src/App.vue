@@ -10,7 +10,6 @@
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
 // import PokeList from "./components/PokeList.vue";
-
 export default {
   name: "App",
   components: {

@@ -6,9 +6,10 @@ import 'vuetify/dist/vuetify.min.css'
 
 import PokeList from './components/PokeList.vue'
 import PokePage from './components/PokePage.vue'
+import vuetify from './plugins/vuetify'
 
-Vue.use(Vuetify)
 Vue.use(VueRouter)
+Vue.use(Vuetify)
 
 Vue.config.productionTip = false
 
@@ -20,15 +21,9 @@ const routes = [
     component: PokeList,
   },
   {
-    path: "/pokemon",
+    path: "/pokemon/:id",
     component: PokePage,
-    children: [
-      {
-        path: '/pokemon/:id',
-        component: PokePage,
-        props: true,
-      }
-    ]
+    props: true,
   },
 ];
 
@@ -41,5 +36,6 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: h => h(App),
+  vuetify,
+  render: h => h(App)
 }).$mount('#app')
